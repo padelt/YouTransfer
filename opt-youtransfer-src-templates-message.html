@@ -5,10 +5,10 @@
 		<p>
 			{{ email.from }} teilt eine Datei (oder mehrere) mit Ihnen. 
 		</p>
-		{% if message %}
-		<p>
-			{{ message }}
-		</p>
+		{% if email.body %}<!-- body -->
+		<p><b>
+			{{ email.body | replace("<", "") | replace(">", "") | replace("\n", "<br/>") | safe }} 
+		</b></p>
 		{% endif %}
 		<table>
 			{% for file in files %}
