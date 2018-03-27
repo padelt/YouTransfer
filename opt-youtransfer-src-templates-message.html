@@ -1,0 +1,29 @@
+<html>
+	<head></head>
+	<body>
+		<h3>Hallo,</h3>
+		<p>
+			{{ email.from }} teilt eine Datei (oder mehrere) mit Ihnen. 
+		</p>
+		{% if message %}
+		<p>
+			{{ message }}
+		</p>
+		{% endif %}
+		<table>
+			{% for file in files %}
+				<tr>
+					<td><a href="{{ file.link }}">{{ file.name }} ({{ file.size }})</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+		<p>
+			Sie können jede Datei einzeln herunterladen, indem Sie auf den Dateinamen klicken.
+Alternativ können Sie auch
+ <a href="{{ bundle.link }}">alle Dateien auf einmal herunterladen</a>.
+		</p>
+		<p>
+			<em>Powered by <a href="youtransfer.io">youtransfer.io</a></em>
+		</p>
+	</body>
+</html>
